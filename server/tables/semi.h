@@ -43,7 +43,7 @@ public:
         po = po_;
     }
     
-    void setPC(const std::shared_ptr<PC> pc_){
+    void setPC(const std::shared_ptr<PC>& pc_){
         pc = pc_;
     }
 

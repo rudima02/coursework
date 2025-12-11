@@ -24,8 +24,9 @@ private:
 
 public:
     VersionPO()=default;
-    VersionPO(const std::string& version, const std::string& date_version, bool downloaded, const std::shared_ptr<PO>& po ) : version(version), date_version(date_version), downloaded(downloaded) 
-                                                                                                        ,po(po){}
+    VersionPO(const std::string& version, const std::string& date_version, bool downloaded, const std::shared_ptr<PO>& po ) : version(version), date_version(date_version), 
+                                                                                                                            downloaded(downloaded) 
+                                                                                                                            ,po(po){}
 
 
     
@@ -56,7 +57,7 @@ public:
     }
 
     void setDownloaded(bool load){
-        this.downloaded = load;
+        downloaded = load;
     }
 
     void setPO(const std::shared_ptr<PO>& po_){
