@@ -15,7 +15,6 @@ private:
 
     std::string version;
     std::string date_version;
-    bool downloaded;
 
 
 #pragma db not_null
@@ -24,8 +23,7 @@ private:
 
 public:
     VersionPO()=default;
-    VersionPO(const std::string& version, const std::string& date_version, bool downloaded, const std::shared_ptr<PO>& po ) : version(version), date_version(date_version), 
-                                                                                                                            downloaded(downloaded) 
+    VersionPO(const std::string& version, const std::string& date_version, const std::shared_ptr<PO>& po ) : version(version), date_version(date_version)
                                                                                                                             ,po(po){}
 
 
@@ -40,9 +38,6 @@ public:
     const std::string& getDate() const{
         return date_version;
     }
-    bool getDownloaded() const{
-        return downloaded;
-    }
 
     const std::shared_ptr<PO>& getPO() const{
         return po;
@@ -54,10 +49,6 @@ public:
 
     void setDate(const std::string& date){
         date_version = date;
-    }
-
-    void setDownloaded(bool load){
-        downloaded = load;
     }
 
     void setPO(const std::shared_ptr<PO>& po_){
