@@ -7,7 +7,7 @@ public:
     unsigned long id = 0;
     std::string version;
     std::string date_version;
-    bool downloaded = false;
+    unsigned long po_id = 0; 
 
     VersionPODTO() = default;
 };
@@ -17,7 +17,7 @@ inline void to_json(nlohmann::json& j, const VersionPODTO& v) {
         {"id", v.id},
         {"version", v.version},
         {"date_version", v.date_version},
-        {"downloaded", v.downloaded}
+        {"po_id", v.po_id}
     };
 }
 
@@ -25,5 +25,5 @@ inline void from_json(const nlohmann::json& j, VersionPODTO& v) {
     if (j.contains("id")) j.at("id").get_to(v.id);
     j.at("version").get_to(v.version);
     j.at("date_version").get_to(v.date_version);
-    j.at("downloaded").get_to(v.downloaded);
+    if (j.contains("po_id")) j.at("po_id").get_to(v.po_id);
 }

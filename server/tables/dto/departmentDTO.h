@@ -2,13 +2,14 @@
 #include <string>
 #include <vector>
 #include <nlohmann/json.hpp>
+#include "pcDTO.h" 
 
 class DepartmentDTO {
 public:
-    unsigned long id = 0;
-    std::string name_department;
-    std::vector<unsigned long> pc_ids;
-    std::vector<unsigned long> user_ids;
+    unsigned long id;
+    std::string name;
+    std::vector<PCDTO> pcs;
+    std::vector<unsigned long> users;
 
     DepartmentDTO() = default;
 };
@@ -16,15 +17,15 @@ public:
 inline void to_json(nlohmann::json& j, const DepartmentDTO& d) {
     j = {
         {"id", d.id},
-        {"name_department", d.name_department},
-        {"pc_ids", d.pc_ids},
-        {"user_ids", d.user_ids}
+        {"name", d.name},
+        {"pcs", d.pcs},
+        {"users", d.users}
     };
 }
 
 inline void from_json(const nlohmann::json& j, DepartmentDTO& d) {
     if (j.contains("id")) j.at("id").get_to(d.id);
-    j.at("name_department").get_to(d.name_department);
-    if (j.contains("pc_ids")) j.at("pc_ids").get_to(d.pc_ids);
-    if (j.contains("user_ids")) j.at("user_ids").get_to(d.user_ids);
+    j.at("name").get_to(d.name);
+    if (j.contains("pcs")) j.at("pcs").get_to(d.pcs);
+    if (j.contains("users")) j.at("users").get_to(d.users);
 }

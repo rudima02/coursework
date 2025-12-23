@@ -6,8 +6,8 @@
 
 class CategoryDTO {
 public:
-    unsigned long id = 0;
-    std::string name_category;
+    unsigned long id;
+    std::string name;
     std::vector<PODTO> programs;
 
     CategoryDTO() = default;
@@ -16,13 +16,13 @@ public:
 inline void to_json(nlohmann::json& j, const CategoryDTO& c) {
     j = {
         {"id", c.id},
-        {"name_category", c.name_category},
+        {"name", c.name},
         {"programs", c.programs}
     };
 }
 
 inline void from_json(const nlohmann::json& j, CategoryDTO& c) {
     if (j.contains("id")) j.at("id").get_to(c.id);
-    j.at("name_category").get_to(c.name_category);
+    j.at("name").get_to(c.name);
     if (j.contains("programs")) j.at("programs").get_to(c.programs);
 }

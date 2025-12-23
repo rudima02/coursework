@@ -1,0 +1,5 @@
+module components
+Card 1.0 Card.qml
+MenuButton 1.0 MenuButton.qml
+StatCard 1.0 StatCard.qml
+NotificationManager 1.0 NotificationManager.qml

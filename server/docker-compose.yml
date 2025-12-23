@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16
+    container_name: coursework_db
+    restart: always
+    environment:
+      POSTGRES_DB: coursework
+      POSTGRES_USER: rudima02
+      POSTGRES_PASSWORD: QwE21gg9
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./coursework.sql:/docker-entrypoint-initdb.d/coursework.sql
+    ports:
+      - "54432:5432" 
+
+  server:
+    build: .
+    container_name: coursework_server
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+
+volumes:
+  db_data:
