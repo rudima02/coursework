@@ -17,15 +17,12 @@ public:
 
     QString baseUrl() const { return m_baseUrl; }
     void setBaseUrl(const QString& url);
-    bool isLoading() const { return m_isLoading; }  // ДОБАВЛЕНО
+    bool isLoading() const { return m_isLoading; }  
 
-    // GET запрос
     Q_INVOKABLE void get(const QString& endpoint);
     
-    // POST запрос с JSON телом
     Q_INVOKABLE void post(const QString& endpoint, const QJsonObject& data);
     
-    // DELETE запрос
     Q_INVOKABLE void deleteResource(const QString& endpoint);
 
 signals:

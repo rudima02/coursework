@@ -6,10 +6,8 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-# Поиск Qt6
 find_package(Qt6 REQUIRED COMPONENTS Core Quick Network Gui Qml Charts)
 
-# Список исходных файлов
 set(SOURCES
     main.cpp
     network/ApiClient.cpp
@@ -33,7 +31,6 @@ set(SOURCES
     viewmodels/UpdatePoCountViewModel.cpp
 )
 
-# Список заголовочных файлов
 set(HEADERS
     network/ApiClient.h
     dto/CategoryDto.h
@@ -65,7 +62,6 @@ set(HEADERS
     viewmodels/UpdatePoCountViewModel.h
 )
 
-# Список QML файлов
 set(QML_FILES
     MainWindow.qml
     CategoriesPage.qml
@@ -83,13 +79,11 @@ set(QML_FILES
     components/NotificationManager.qml
 )
 
-# Создаем исполняемый файл
 qt_add_executable(${PROJECT_NAME}
     ${SOURCES}
     ${HEADERS}
 )
 
-# Подключаем Qt модули
 target_link_libraries(${PROJECT_NAME}
     Qt6::Core
     Qt6::Quick
@@ -99,19 +93,16 @@ target_link_libraries(${PROJECT_NAME}
     Qt6::Charts
 )
 
-# Добавляем QML файлы как ресурсы
 qt_add_resources(${PROJECT_NAME} "qml"
     PREFIX "/"
     FILES ${QML_FILES}
 )
 
-# Устанавливаем свойства сборки
 set_target_properties(${PROJECT_NAME} PROPERTIES
     WIN32_EXECUTABLE TRUE
     MACOSX_BUNDLE TRUE
 )
 
-# Для Windows устанавливаем иконку
 if(WIN32)
     set_target_properties(${PROJECT_NAME} PROPERTIES
         WIN32_EXECUTABLE TRUE
@@ -119,7 +110,6 @@ if(WIN32)
     )
 endif()
 
-# Для macOS устанавливаем иконку
 if(APPLE)
     set_target_properties(${PROJECT_NAME} PROPERTIES
         MACOSX_BUNDLE TRUE

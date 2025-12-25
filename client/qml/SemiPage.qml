@@ -21,7 +21,6 @@ Page {
         RowLayout {
             anchors.fill: parent
             spacing: 16
-            anchors.margins: 16  
 
             ToolButton {
                 text: "☰"
@@ -242,7 +241,7 @@ Page {
                                     spacing: 8
 
                                     Label {
-                                        text: "Программа ID: " + modelData.poId
+                                        //text: "Программа: " + version.version
                                         font.pixelSize: 12
                                         color: "#795548"
                                         font.bold: true
@@ -255,7 +254,7 @@ Page {
                                     }
 
                                     Label {
-                                        text: "Компьютер ID: " + modelData.pcId
+                                        //text: "Компьютер: " + computer.name
                                         font.pixelSize: 12
                                         color: "#795548"
                                         font.bold: true
@@ -272,8 +271,6 @@ Page {
 
                                 onClicked: {
                                     deleteDialog.semiId = modelData.id
-                                    deleteDialog.poId = modelData.poId
-                                    deleteDialog.pcId = modelData.pcId
                                     deleteDialog.open()
                                 }
                             }
@@ -321,8 +318,6 @@ Page {
     Dialog {
         id: deleteDialog
         property int semiId: -1
-        property int poId: -1
-        property int pcId: -1
 
         title: "Удаление установки"
         anchors.centerIn: parent
@@ -352,7 +347,6 @@ Page {
                 Layout.alignment: Qt.AlignHCenter
 
                 Label {
-                    text: "Программа ID: " + deleteDialog.poId
                     font.pixelSize: 12
                     color: "#795548"
                 }
@@ -364,7 +358,6 @@ Page {
                 }
 
                 Label {
-                    text: "Компьютер ID: " + deleteDialog.pcId
                     font.pixelSize: 12
                     color: "#795548"
                 }
@@ -384,8 +377,8 @@ Page {
             for (var i = 0; i < poVm.programs.length; i++) {
                 var prog = poVm.programs[i]
                 semiPoModel.append({
-                    text: prog.name + " (ID: " + prog.id + ")",
-                    value: prog.id
+                    text: prog.name,
+                    //value: prog.id
                 })
             }
         }
@@ -397,8 +390,8 @@ Page {
             for (var i = 0; i < pcVm.computers.length; i++) {
                 var comp = pcVm.computers[i]
                 semiPcModel.append({
-                    text: comp.name + " (ID: " + comp.id + ")",
-                    value: comp.id
+                    text: comp.name,
+                    //value: comp.id
                 })
             }
         }

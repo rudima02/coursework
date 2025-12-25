@@ -245,7 +245,7 @@ Page {
                                     spacing: 8
 
                                     Label {
-                                        text: "ID: " + modelData.id
+                                        //text: "ID: " + modelData.id
                                         font.pixelSize: 12
                                         color: "#757575"
                                     }
@@ -263,13 +263,13 @@ Page {
                                     }
 
                                     Label {
-                                        text: "•"
+                                        text: ""
                                         font.pixelSize: 12
                                         color: "#BDBDBD"
                                     }
 
                                     Label {
-                                        text: "Программа ID: " + modelData.poId
+                                        //text: "Программа ID: " + modelData.poId
                                         font.pixelSize: 12
                                         color: "#607D8B"
                                     }
@@ -284,7 +284,7 @@ Page {
                                 implicitHeight: 32
 
                                 onClicked: {
-                                    deleteDialog.versionId = modelData.id
+                                    //deleteDialog.versionId = modelData.id
                                     deleteDialog.versionName = "v" + modelData.version
                                     deleteDialog.open()
                                 }
@@ -352,8 +352,8 @@ Page {
             for (var i = 0; i < poVm.programs.length; i++) {
                 var prog = poVm.programs[i]
                 versionPoModel.append({
-                    text: prog.name + " (ID: " + prog.id + ")",
-                    value: prog.id
+                    text: prog.name //+ " (ID: " + prog.id + ")",
+                    //value: prog.id
                 })
             }
         }

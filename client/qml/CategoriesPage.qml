@@ -14,12 +14,11 @@ Page {
 
     header: ToolBar {
         Material.foreground: "white"
-        Material.background: "#2196F3"  // Используем фиксированный цвет
+        Material.background: "#2196F3"  
 
         RowLayout {
             anchors.fill: parent
             spacing: 16
-            anchors.margins: 16
 
             ToolButton {
                 text: "☰"
@@ -75,12 +74,11 @@ Page {
     ColumnLayout {
         anchors.fill: parent
         spacing: 16
-        anchors.margins: 16  // Исправлено: 16 вместо 20
+        anchors.margins: 16  
 
-        // Карточка добавления
         Card {
             Layout.fillWidth: true
-            Layout.preferredHeight: 150  // Добавлена фиксированная высота
+            Layout.preferredHeight: 150  
 
             ColumnLayout {
                 anchors.fill: parent
@@ -135,7 +133,6 @@ Page {
             }
         }
 
-        // Заголовок списка
         RowLayout {
             Layout.fillWidth: true
             spacing: 12
@@ -165,7 +162,6 @@ Page {
             }
         }
 
-        // Список категорий
         Card {
             Layout.fillWidth: true
             Layout.fillHeight: true
@@ -187,7 +183,6 @@ Page {
                         anchors.margins: 12
                         spacing: 8
 
-                        // Заголовок категории
                         RowLayout {
                             spacing: 12
 
@@ -220,7 +215,6 @@ Page {
                                     spacing: 8
 
                                     Label {
-                                        text: "ID: " + modelData.id
                                         font.pixelSize: 12
                                         color: "#757575"
                                     }
@@ -254,14 +248,12 @@ Page {
                             }
                         }
 
-                        // Разделитель
                         Rectangle {
                             Layout.fillWidth: true
                             height: 1
                             color: "#EEEEEE"
                         }
 
-                        // Список программ
                         ColumnLayout {
                             spacing: 8
                             visible: modelData.programs && modelData.programs.length > 0
@@ -319,7 +311,7 @@ Page {
         }
     }
 
-    // Диалог удаления
+    
     Dialog {
         id: deleteDialog
         property int categoryId: -1

@@ -19,7 +19,6 @@ Page {
         RowLayout {
             anchors.fill: parent
             spacing: 16
-            anchors.margins: 16
 
             ToolButton {
                 text: "☰"
@@ -197,7 +196,6 @@ Page {
                                     spacing: 8
 
                                     Label {
-                                        text: "ID: " + modelData.id
                                         font.pixelSize: 12
                                         color: "#757575"
                                     }
@@ -209,7 +207,7 @@ Page {
                                     }
 
                                     Label {
-                                        text: "Пользователей: " + (modelData.userIds ? modelData.userIds.length : 0)
+                                        //text: "Пользователей: " + (modelData.userIds ? modelData.userIds.length : 0)
                                         font.pixelSize: 12
                                         color: "#757575"
                                     }

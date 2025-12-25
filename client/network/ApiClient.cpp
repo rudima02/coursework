@@ -79,11 +79,9 @@ void ApiClient::handleReplyFinished() {
         QByteArray data = m_currentReply->readAll();
         emit requestSuccess(data, m_currentEndpoint);
     } else {
-        // Для отладки: выводим информацию об ошибке
         qDebug() << "API Error:" << m_currentReply->errorString();
         qDebug() << "URL:" << m_currentReply->url().toString();
         
-        // Если сервер недоступен, показываем понятное сообщение
         if (m_currentReply->error() == QNetworkReply::ConnectionRefusedError) {
             emit requestError("Сервер недоступен. Проверьте:\n"
                             "1. Сервер запущен\n"

@@ -15,8 +15,8 @@ ApplicationWindow {
     Material.accent: Material.Blue
     Material.primary: Material.Blue
     property alias globalDrawer: drawer  
-    property string serverUrl: "http://localhost:8081"
-    property bool isConnected: false
+    //property string serverUrl: "http://localhost:8081"
+    //property bool isConnected: false
 
     property color primaryColor: "#2196F3"
     property color secondaryColor: "#03A9F4"
@@ -169,7 +169,7 @@ ApplicationWindow {
                             drawer.close() 
                         } 
                     }
-                    MenuButton { 
+                    /*MenuButton { 
                         fontFamily: mediumFont.name; 
                         primaryColor: primaryColor; 
                         buttonText: "⚙️ Администрирование"; 
@@ -177,7 +177,7 @@ ApplicationWindow {
                             stackView.push("qml/AdminPage.qml"); 
                             drawer.close() 
                         } 
-                    }
+                    }*/
 
                     Item { Layout.fillHeight: true }
 

@@ -258,7 +258,6 @@ Page {
                                     spacing: 8
 
                                     Label {
-                                        text: "ID: " + modelData.id
                                         font.pixelSize: 12
                                         color: "#757575"
                                     }

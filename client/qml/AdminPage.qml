@@ -53,10 +53,6 @@ Page {
         interval: 1000
         repeat: false
         
-        onTriggered: {
-            console.log("AdminPage: Таймер автообновления сработал")
-            refreshData()
-        }
     }
 
     function refreshData() {
@@ -359,11 +355,6 @@ Page {
                             console.log("AdminPage: Нажата кнопка 'Добавить ПК'")
                             
                             var selectedDepartmentId = departmentsCombo.currentValue
-                            
-                            console.log("AdminPage: Выбран отдел ID:", selectedDepartmentId,
-                                      "Количество ПК:", pcsCount.value, 
-                                      "ПО ID:", poCombo.currentValue)
-                            
                             adminVm.bulkAdd([selectedDepartmentId], pcsCount.value, poCombo.currentValue)
                             
                             refreshTimer.start()

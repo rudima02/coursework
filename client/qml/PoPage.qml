@@ -35,7 +35,6 @@ Page {
         RowLayout {
             anchors.fill: parent
             spacing: 16
-            anchors.margins: 16
 
             ToolButton {
                 text: "☰"
